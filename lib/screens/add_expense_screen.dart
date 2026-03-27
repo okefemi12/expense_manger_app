@@ -107,6 +107,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       id:
           widget.initialExpense?.id ??
           DateTime.now().toString(), // Assuming you generate IDs like this
+      paymentMethod: "",
       amount: double.parse(_amountController.text),
       categoryId: _selectedCategoryId!,
       payee: _payeeController.text,

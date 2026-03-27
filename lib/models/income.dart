@@ -1,33 +1,27 @@
-class Expense {
+class Income {
   final String id;
   final double amount;
-  final String categoryId;
-  final String payee;
+  final String source; // e.g., Salary, Freelance, Gift
   final String note;
   final DateTime date;
-  final String tag;
   final String paymentMethod; // Cash, Bank Transfer, Card
 
-  Expense({
+  Income({
     required this.id,
     required this.amount,
-    required this.categoryId,
-    required this.payee,
+    required this.source,
     required this.note,
     required this.date,
-    required this.tag,
     required this.paymentMethod,
   });
 
-  factory Expense.fromJson(Map<String, dynamic> json) {
-    return Expense(
+  factory Income.fromJson(Map<String, dynamic> json) {
+    return Income(
       id: json['id'] ?? '',
       amount: (json['amount'] ?? 0).toDouble(),
-      categoryId: json['categoryId'] ?? '',
-      payee: json['payee'] ?? '',
+      source: json['source'] ?? '',
       note: json['note'] ?? '',
       date: DateTime.parse(json['date']),
-      tag: json['tag'] ?? '',
       paymentMethod: json['paymentMethod'] ?? 'Cash',
     );
   }
@@ -36,11 +30,9 @@ class Expense {
     return {
       'id': id,
       'amount': amount,
-      'categoryId': categoryId,
-      'payee': payee,
+      'source': source,
       'note': note,
       'date': date.toIso8601String(),
-      'tag': tag,
       'paymentMethod': paymentMethod,
     };
   }
